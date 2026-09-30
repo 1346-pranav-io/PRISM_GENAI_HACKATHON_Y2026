@@ -1,0 +1,25 @@
+{
+  "description": "User corrects a previously mentioned destination.",
+  "session_id": "eval_explicit_correction",
+  "steps": [
+    {
+      "event_type": "USER_TEXT",
+      "payload": {
+        "text": "Book a flight to Mumbai"
+      },
+      "delay_seconds": 0.01
+    },
+    {
+      "event_type": "USER_TEXT",
+      "payload": {
+        "text": "Actually make it New York"
+      },
+      "delay_seconds": 0.05
+    }
+  ],
+  "settle_seconds": 0.2,
+  "expected": {
+    "min_state_version": 3,
+    "has_cancelled_task": true
+  }
+}

@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: interruptible-realtime-agent
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    # Exactly ONE worker: session state is in-memory.
+    startCommand: uvicorn src.agent_runtime.server.app:app --host 0.0.0.0 --port $PORT --workers 1 --proxy-headers --forwarded-allow-ips="*"
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.7"

@@ -1,0 +1,25 @@
+{
+  "description": "User sends a flight search then immediately says stop.",
+  "session_id": "eval_cancellation_cascade",
+  "steps": [
+    {
+      "event_type": "USER_TEXT",
+      "payload": {
+        "text": "search flights to Rome"
+      },
+      "delay_seconds": 0.005
+    },
+    {
+      "event_type": "USER_TEXT",
+      "payload": {
+        "text": "stop!"
+      },
+      "delay_seconds": 0.05
+    }
+  ],
+  "settle_seconds": 0.1,
+  "expected": {
+    "has_cancelled_task": true,
+    "version_monotonic": true
+  }
+}

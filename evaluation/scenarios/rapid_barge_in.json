@@ -1,0 +1,25 @@
+{
+  "description": "User sends a flight search then immediately interrupts with a correction.",
+  "session_id": "eval_rapid_barge_in",
+  "steps": [
+    {
+      "event_type": "USER_TEXT",
+      "payload": {
+        "text": "search flights to London"
+      },
+      "delay_seconds": 0.01
+    },
+    {
+      "event_type": "USER_TEXT",
+      "payload": {
+        "text": "No wait, change destination to Tokyo"
+      },
+      "delay_seconds": 0.05
+    }
+  ],
+  "settle_seconds": 0.2,
+  "expected": {
+    "min_state_version": 3,
+    "has_cancelled_task": true
+  }
+}

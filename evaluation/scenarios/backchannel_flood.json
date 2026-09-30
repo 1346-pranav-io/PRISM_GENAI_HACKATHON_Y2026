@@ -1,0 +1,39 @@
+{
+  "description": "User sends a flight search followed by multiple backchannel utterances.",
+  "session_id": "eval_backchannel_flood",
+  "steps": [
+    {
+      "event_type": "USER_TEXT",
+      "payload": {
+        "text": "search flights to Paris"
+      },
+      "delay_seconds": 0.01
+    },
+    {
+      "event_type": "USER_TEXT",
+      "payload": {
+        "text": "uh-huh"
+      },
+      "delay_seconds": 0.01
+    },
+    {
+      "event_type": "USER_TEXT",
+      "payload": {
+        "text": "okay"
+      },
+      "delay_seconds": 0.01
+    },
+    {
+      "event_type": "USER_TEXT",
+      "payload": {
+        "text": "go on"
+      },
+      "delay_seconds": 0.01
+    }
+  ],
+  "settle_seconds": 0.2,
+  "expected": {
+    "tasks_cancelled": 0,
+    "has_agent_response": true
+  }
+}
